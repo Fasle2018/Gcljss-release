@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>工程量计算书 · 下载</title>
+<meta name="description" content="工程量计算书正式版下载：Excel 插件 + AutoCAD 插件 + 建工计算器。下载地址来自 GitHub Releases 最新版，永远指向最新安装包。">
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: #f5f6f8;
+    color: #1f2328;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  .card {
+    width: 100%;
+    max-width: 640px;
+    background: #fff;
+    border: 1px solid #e4e7eb;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    padding: 40px 36px;
+    text-align: center;
+  }
+  .brand { font-size: 26px; font-weight: 700; letter-spacing: .5px; }
+  .subtitle { color: #6a737d; margin-top: 8px; font-size: 14px; }
+  .badge-row { margin: 22px 0 6px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .version-chip {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: #0969da;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .version-chip small { font-weight: 400; opacity: .85; }
+  .note { color: #57606a; margin: 14px 0 26px; font-size: 13px; line-height: 1.6; }
+  .btn {
+    display: inline-block;
+    padding: 14px 40px;
+    border-radius: 10px;
+    background: #1f883d;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform .08s ease, background .15s ease;
+  }
+  .btn:hover { background: #1a7f37; transform: translateY(-1px); }
+  .btn.sec { background: #6e7681; margin-left: 12px; font-weight: 500; }
+  .btn.sec:hover { background: #57606a; }
+  .meta { margin-top: 30px; font-size: 13px; color: #6a737d; line-height: 2; }
+  .meta a { color: #0969da; text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+  .spinner {
+    display: inline-block; width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,.6); border-top-color: #fff;
+    border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -2px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading { color: #57606a; margin-top: 14px; font-size: 14px; }
+  .err { color: #cf222e; margin-top: 14px; font-size: 13px; }
+  .hint { margin-top: 18px; font-size: 12px; color: #8c959f; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">工程量计算书</div>
+    <div class="subtitle">Excel 插件 · AutoCAD 插件 · 建工计算器 · 正式版</div>
+
+    <div class="badge-row">
+      <span class="version-chip" id="verChip">读取版本中…</span>
+      <a class="version-chip" style="background:#1f883d;text-decoration:none" href="https://github.com/Fasle2018/Gcljss-release/releases" target="_blank" rel="noopener">查看发布记录</a>
+    </div>
+
+    <div class="note" id="note">正在从 GitHub Releases 获取最新版本…</div>
+
+    <div>
+      <a class="btn" id="dlBtn" href="https://github.com/Fasle2018/Gcljss-release/releases" target="_blank" rel="noopener"><span class="spinner" id="spinner"></span>&nbsp;正在获取下载链接…</a>
+      <a class="btn sec" href="https://github.com/Fasle2018/Gcljss-release" target="_blank" rel="noopener">打开仓库</a>
+    </div>
+
+    <div class="meta">
+      安装包支持 <b>覆盖安装</b>：新版号 &gt; 当前版本即可升级。<br>
+      需要帮助？请打开 <a href="https://github.com/Fasle2018/Gcljss-release" target="_blank" rel="noopener">仓库首页</a> 查看说明与系统要求。
+    </div>
+    <div class="hint">下载链接由 GitHub Release 自动生成，永远指向最新正式版。</div>
+  </div>
+
+<script>
+(function () {
+  var OWNER = "Fasle2018";
+  var REPO  = "Gcljss-release";
+  var API   = "https://api.github.com/repos/" + OWNER + "/" + REPO + "/releases/latest";
+
+  function $(id) { return document.getElementById(id); }
+  function setText(id, t) { var e = $(id); if (e) e.textContent = t; }
+
+  function clearVer() { setText("verChip", "无法读取版本"); }
+  function fail(msg) {
+    var n = $("note");
+    if (n) { n.className = "err"; n.textContent = msg; }
+  }
+
+  fetch(API, { headers: { "Accept": "application/vnd.github+json" } })
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(function (rel) {
+      var tag = (rel.tag_name || "").replace(/^v/i, "").trim();
+      // 选取最新安装包 asset：优先 _Setup_ 结尾的 .exe，否则第一个 .exe
+      var assets = (rel.assets || []).filter(function (a) { return /\.exe$/i.test(a.name || ""); });
+      var asset = null;
+      for (var i = 0; i < assets.length; i++) {
+        if (/_.*Setup/i.test(assets[i].name) || /Setup/i.test(assets[i].name)) { asset = assets[i]; break; }
+      }
+      if (!asset && assets.length) asset = assets[0];
+
+      // 版本徽章：优先从 release 的 tag 取版本号
+      var ver = tag || "最新版";
+      setText("verChip", "最新版 " + ver);
+
+      if (asset && asset.browser_download_url) {
+        var dl = $("dlBtn");
+        dl.href = asset.browser_download_url;
+        dl.setAttribute("download", "");
+        dl.innerHTML = "⬇ 下载安装包";
+        setText("note", "已是最新正式版（" + ver + "），点击上方按钮即可下载。");
+        var sp = $("spinner"); if (sp) sp.remove();
+      } else if (ver) {
+        // 没有可用 asset：回退到 latest/download 裸地址（按 tag 推断文件名可能不准确），
+        // 但仍给出最新 release 页面兜底
+        var dl2 = $("dlBtn");
+        dl2.href = "https://github.com/" + OWNER + "/" + REPO + "/releases/latest";
+        dl2.innerHTML = "⬇ 前往下载";
+        var sp2 = $("spinner"); if (sp2) sp2.remove();
+        setText("note", "已是最新正式版（" + ver + "）。若上方按钮未自动定位安装包，请点击「查看发布记录」选择对应安装包。");
+      } else {
+        setText("verChip", "查看 Release");
+      }
+    })
+    .catch(function (e) {
+      clearVer();
+      fail("暂时无法获取最新版本（" + e.message + "）。请点击下方按钮前往发布页面手动下载。");
+      var dl3 = $("dlBtn");
+      dl3.href = "https://github.com/" + OWNER + "/" + REPO + "/releases/latest";
+      dl3.innerHTML = "⬇ 前往下载";
+      var sp3 = $("spinner"); if (sp3) sp3.remove();
+    });
+})();
+</script>
+</body>
+</html>
