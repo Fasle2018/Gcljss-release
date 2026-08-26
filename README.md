@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.20.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.21.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.20.0.exe`（约 44 MB，单文件安装包）
-- 版本：**3.0.20.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.21.0.exe`（约 44 MB，单文件安装包）
+- 版本：**3.0.21.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,10 @@
 
 ## 版本历史（近期）
 
-### 3.0.20.0（当前最新）
+### 3.0.21.0（当前最新）
+- 修复升级流程：不再续传/安装低于当前版本的过期残留下载任务（如旧版 3.0.18.0 下载包残留被误续传的问题）。
+
+### 3.0.20.0（近期）
 - 统一「关于」窗体：以 `UpdateService/UpdateForm` 窗体的模板为样式基准，新增 `AboutForm`（DevExpress DirectXForm + HTML/CSS 重绘），Excel 与 AutoCAD 共用统一关于对话框。
 - 查找窗体数据区右键菜单：删除「筛选{值}」，新增「限定:{值}」与「反查」（功能与功能区反查按钮一致）。
 - 启动检测到待安装更新时改为弹窗询问（是否立即更新），不再静默安装造成困惑。
