@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.26.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.27.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.26.0.exe`（约 45 MB，单文件安装包）
-- 版本：**3.0.26.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.27.0.exe`（约 45 MB，单文件安装包）
+- 版本：**3.0.27.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,13 @@
 
 ## 版本历史（近期）
 
-### 3.0.26.0（当前最新）
+### 3.0.27.0（当前最新）
+- 「建工计算器」新增风管导流叶片面积计算页（依据《建筑施工手册》第四版表 29-3-8）：宽度/高度自定义、查表向上取档，叶片数量/连接板长度/单片面积按档位自动计算。
+- 「建工计算器」桥架支架页：型钢型号下拉修复（规格表型号列统一、支持直接输入理论重量）、列悬停提示、新增「清空数据」按钮恢复页面默认。
+- 「建工计算器」说明页面全面更新（新增附属工程量计算组说明，防腐保温补充阀门/法兰规则）。
+- 角钢规格表去除冗余型号字段。
+
+### 3.0.26.0（近期）
 - 修复更新任务窗体（软件更新）底部「检查更新 / 确定」按钮及提示文字被窗体下边缘截断的问题（加大窗体高度至容纳完整内容）。
 
 ### 3.0.25.0（近期）
