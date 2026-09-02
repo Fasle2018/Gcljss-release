@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.28.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.29.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.28.0.exe`（约 45 MB，单文件安装包）
-- 版本：**3.0.28.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.29.0.exe`（约 45 MB，单文件安装包）
+- 版本：**3.0.29.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,12 @@
 
 ## 版本历史（近期）
 
-### 3.0.28.0（当前最新）
+### 3.0.29.0（当前最新）
+- **修复 GG/TQ 批注累积丢失**：批注压缩升级后,GG/TQ(提取长度/数量)命令在同单元格多次执行时,批注ID被连成一体导致只保留 1 个。已在累积初值处补回分隔符,同单元格多次提取可正确累积全部对象ID。
+- 反查入口(RngFormCad)补充说明注释: 反查读通用 RangeComment(当前单元格批注),而非被清空的 CC/GG/LG 暂存缓存。
+- 追溯基准提交：`e762838`。
+
+### 3.0.28.0（近期）
 - **反查高亮（呼吸灯）效果升级**：在原有颜色轮转基础上叠加「明暗呼吸 + 线宽脉动」，最亮时线条最粗，定位对象比以往醒目得多；动画相位改按真实时间推进，刷新率抖动不再影响节奏快慢。
 - **呼吸效果可按个人喜好调节**：AutoCAD 选项 →「工程量计算书」→「动态显示」新增 5 项参数 —— 色相周期、呼吸周期、亮度下限、呼吸陡度、线宽脉动，每项都有详细说明与取值范围校验（超范围会提示并回退默认值）。「刷新间隔」职责同步收敛为只控制画面流畅度与性能开销，颜色与明暗的快慢改由色相周期／呼吸周期决定。
 - **FX 反查任务窗格重构**：改用 GridView 按列分组展示，检索性能优化，切换文档时自动清空，避免残留旧结果。
