@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.31.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.32.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.31.0.exe`（约 45 MB，单文件安装包）
-- 版本：**3.0.31.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.32.0.exe`（约 45 MB，单文件安装包）
+- 版本：**3.0.32.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,15 @@
 
 ## 版本历史（近期）
 
-### 3.0.31.0（当前最新）
+### 3.0.32.0（当前最新）
+- **修复多选单元格后批注污染**：Excel 中多选单元格（活动单元格含批注）后再执行 CAD 侧写入命令（CC/TQ/GG/BZLG），不再把选区其他单元格的批注串入活动单元格——已有批注直接读目标单元格真实批注，仅活动单元格的批注累积；与反查（RngFormCad）逻辑解耦，反查功能不受影响。
+- **高版本文件升级通道**：打开由更高版本程序创建的文件时，由「仅提示」升级为询问「是否立即检查更新」，确认后走内置更新流程（联网检测 → 后台下载 → 下次启动自动安装），提示语附带发布页面地址供手动下载。
+- **瞬态效果默认参数调整**：反查高亮（呼吸灯）默认更舒缓、对比更明显——色相周期 5000ms、呼吸周期 1500ms、亮度下限 0.2、呼吸陡度 1、线宽脉动 2（其余参数保持现有默认值）。
+- **关于窗口新增「发布页面」链接**：点击直接打开公开仓库 Releases 页面，便于手动下载最新版。
+- **查询窗口列名映射调整**：RNGFORMCAD 反查面板与 FX 反查任务窗格中，「点」显示为「立管」、「块参照」显示为「设备」（仅列表头展示名称，数据逻辑不变）。
+- 版本号全项目统一 3.0.32.0。
+
+### 3.0.31.0（近期）
 - **消除首次启动 AutoCAD 的安全提示**：程序启动（HomeStart 注册插件）时自动将安装目录写入各版本 AutoCAD 的「受信任位置」（TRUSTEDPATHS，2012~2025 全版本动态适配；条目末尾 `\...` 表示整棵目录树受信任），安装在 D 盘等非 `C:\Program Files` 路径时首次加载插件不再弹「无法验证发布者」；与天正等既有受信任条目兼容共存，无需手动设置。
 - 追溯基准提交：`9dd23e0`。
 
