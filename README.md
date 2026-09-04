@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.32.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.33.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.32.0.exe`（约 45 MB，单文件安装包）
-- 版本：**3.0.32.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.33.0.exe`（约 46 MB，单文件安装包）
+- 版本：**3.0.33.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,13 @@
 
 ## 版本历史（近期）
 
-### 3.0.32.0（当前最新）
+### 3.0.33.0（当前最新）
+- **查找窗体右键菜单升级为「限定/排除」快速筛选**：数据区右键显示「限定:{值}」「排除:{值}」分体下拉——点击标题直接按下拉第一项(默认首个非空值)筛选，展开箭头列出当前列不重复值(≤10 项，含空值项)；值太多时「更多...」定位到本列自动筛选行单元格直接输入条件（限定=包含、排除=不包含），并支持空值查找/排除。
+- **查找窗体默认折叠功能区**：仅显示选项卡一行，可随时手动展开，数据区更大。
+- **主程序启动窗体取消清理安装残留**：不再删除安装目录下的 setup.exe / DotNetFX40 / VSTOR40 / WindowsInstaller4_5 等历史残留，同时移除「正在清理安装残留…」启动提示。
+- 版本号全项目统一 3.0.33.0。
+
+### 3.0.32.0（近期）
 - **修复多选单元格后批注污染**：Excel 中多选单元格（活动单元格含批注）后再执行 CAD 侧写入命令（CC/TQ/GG/BZLG），不再把选区其他单元格的批注串入活动单元格——已有批注直接读目标单元格真实批注，仅活动单元格的批注累积；与反查（RngFormCad）逻辑解耦，反查功能不受影响。
 - **高版本文件升级通道**：打开由更高版本程序创建的文件时，由「仅提示」升级为询问「是否立即检查更新」，确认后走内置更新流程（联网检测 → 后台下载 → 下次启动自动安装），提示语附带发布页面地址供手动下载。
 - **瞬态效果默认参数调整**：反查高亮（呼吸灯）默认更舒缓、对比更明显——色相周期 5000ms、呼吸周期 1500ms、亮度下限 0.2、呼吸陡度 1、线宽脉动 2（其余参数保持现有默认值）。
