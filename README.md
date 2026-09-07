@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.34.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.35.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.34.0.exe`（约 60 MB，单文件安装包）
-- 版本：**3.0.34.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.35.0.exe`（约 44 MB，单文件安装包）
+- 版本：**3.0.35.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,13 @@
 
 ## 版本历史（近期）
 
-### 3.0.34.0（当前最新）
+### 3.0.35.0（当前最新）
+- **DevExpress 汉化资源单点化**：全部汉化资源独立为共享资源库（`LocalizationResources.dll`，内嵌 45,194 条中文资源），Excel 插件、AutoCAD 2012~2025 插件、主程序界面、造价计算器统一挂载同一资源管理器——与系统语言无关，干净环境一致生效，后续改翻译只需维护一处。
+- **安装包瘦身**：取消 zh-Hans 卫星资源目录（已并入主资源库），发布基线清理 8 个未引用的 DevExpress 组件，安装包约 60 MB → **44 MB**。
+- **发布管线适配**：安装程序直接安装 `LocalizationResources.dll`，并防御性排除历史残留的 zh-Hans 卫星目录。
+- 版本号全项目统一 3.0.35.0。
+
+### 3.0.34.0（近期）
 - **DevExpress 界面全面汉化**：查找窗口等全部 DevExpress 控件界面（右键菜单、列筛选框"值/文本筛选/清除筛选/关闭"、日期/消息框等）改为中文。采用官方 v23.2 本地化 API（XtraLocalizer.UserResourceManager + 内置合并 RESX，48,315 条中文资源），不依赖语言包目录/系统语言，开发机与干净环境一致生效。
 - **汉化质量加固**：占位符（{0}/{1} 与格式符）、快捷键（&X）全部保留并按原文对齐；清理初译错位/无关文本污染、无效占位符与多余空白；"掩面编辑"等错译修正。
 - **修复 DevExpress.Data 部署一致性**：主集统一引用组件目录原版（强名称有效），解决安装后 Excel 加载报"强名称签名无效/哈希与清单不符"的问题。
