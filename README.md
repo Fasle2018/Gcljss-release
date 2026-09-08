@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.36.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.37.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.36.0.exe`（约 44 MB，单文件安装包）
-- 版本：**3.0.36.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.37.0.exe`（约 44 MB，单文件安装包）
+- 版本：**3.0.37.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,17 @@
 
 ## 版本历史（近期）
 
-### 3.0.36.0（当前最新）
+### 3.0.37.0（当前最新）
+- **CAD 功能区图标改为 SVG 矢量加载**：36 个功能图标源文件统一收纳到共享项目并随程序集发布（不再依赖安装目录的图标文件夹与 XML 映射），任意缩放清晰；后续增删改图标只需替换源文件重新编译。
+- **图标配色记忆**：功能区「更改图标颜色」所选颜色自动保存，下次启动自动套用；未设置过时保持图标原色。
+- **查找窗口列宽自由调整**：取消计算式列"最多占网格宽度 30%"的限制，可按内容完整显示；关闭窗口时自动记住各列宽度，下次打开沿用。
+- **输入框统一升级**：数据编辑类输入框改用 DevExpress 输入框（批量修改、立管编辑、系数调整、行高调整），支持数字微调按钮；需要选取 Excel 单元格区域的操作保留原生选取方式。
+- **查找窗口细节修复**：选中分部（分组）行时不再误激活 Excel 的 A1 单元格。
+- **对象树小计格式**：分部小计固定保留 2 位小数。
+- **提示框图标按用途区分**：询问、警示、成功、错误各用对应图标，提示语义更明确。
+- 版本号全项目统一 3.0.37.0。
+
+### 3.0.36.0（近期）
 - **对象树窗格按类型小计**：选择图元后弹出的对象树窗格（RngFormCad 反查入口）各分部标题显示小计——线按长度合计、点按属性合计（属性为计算式或 Excel 名称时自动求值后再合计，无法求值的不计入），块等类型不统计；格式如"共 5 个(合计: 1,400)"。
 - **FX 反查窗格同步小计**：分组行以摘要汇总机制显示"类型: 多段线（共 5 个, 99.358）"。
 - **编译警告治理**：汉化资源库去重 1,309 组重复资源与 5 个大小写变体冲突，MSB3568 警告清零（运行时行为不变）。
