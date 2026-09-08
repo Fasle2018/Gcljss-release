@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.37.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.38.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.37.0.exe`（约 44 MB，单文件安装包）
-- 版本：**3.0.37.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.38.0.exe`（约 44 MB，单文件安装包）
+- 版本：**3.0.38.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,12 @@
 
 ## 版本历史（近期）
 
-### 3.0.37.0（当前最新）
+### 3.0.38.0（当前最新）
+- **查找窗口列宽恢复与窗体宽度联动**：修正上一版引入的问题——关闭查找窗口时记住的列宽不再"钉死"为固定像素，改为按比例恢复；拖动窗体宽度时各列按比例同步缩放（不再出现水平滚动条），既保留你调整过的列宽比例，也恢复与窗口的联动。
+- **恢复工程量列宽度上限**：工程量列的最大宽度限制不再被列宽恢复过程清除。
+- 版本号全项目统一 3.0.38.0。
+
+### 3.0.37.0（近期）
 - **CAD 功能区图标改为 SVG 矢量加载**：36 个功能图标源文件统一收纳到共享项目并随程序集发布（不再依赖安装目录的图标文件夹与 XML 映射），任意缩放清晰；后续增删改图标只需替换源文件重新编译。
 - **图标配色记忆**：功能区「更改图标颜色」所选颜色自动保存，下次启动自动套用；未设置过时保持图标原色。
 - **查找窗口列宽自由调整**：取消计算式列"最多占网格宽度 30%"的限制，可按内容完整显示；关闭窗口时自动记住各列宽度，下次打开沿用。
