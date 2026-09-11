@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.39.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.40.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.39.0.exe`（约 44 MB，单文件安装包）
-- 版本：**3.0.39.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.40.0.exe`（约 44 MB，单文件安装包）
+- 版本：**3.0.40.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,14 @@
 
 ## 版本历史（近期）
 
-### 3.0.39.0（当前最新）
+### 3.0.40.0（当前最新）
+- **修复「全图搜索」结果为 0 的问题**：当所选对象的图层名、线型名或文字内容里含 `-`、`*`、`#`、`.` 等 AutoCAD 通配符字符时（例如图层名 `AX-00-B01-LW$0$S-PATT-WALL`，其中 `-` 被系统当作"范围"符号），GG / EM / TQ 命令的全图搜索结果会错误地返回 0 个。现已改为按对象名/内容的**字面值**精确匹配，此类对象可正常筛选（含 `$` 符号的图层名同样修复）；GLS 命令使用自定义比较器，原本不受影响。
+- **修复自建块的筛选失效**：多项匹配生成的块名带唯一后缀（`$GCLJSS$NAME$…$ID$…`）。上一版修复通配符时把块名里的 `*` 也一并转义，导致对这类块再次执行 EM / GL / TQ 时筛选不到同族块（`$ID$` 后缀不同的同名块）。现已恢复块名的模糊匹配语义，同时保留匿名块（`*U12` 一类）按字面匹配的正确行为。
+- **筛选条件「高级」新增按长度比较**：在「过滤统计」窗口勾选「高级」时，除原有的块名 / 文字内容比较外，新增对**曲线类对象**（直线、圆弧、圆、多段线、样条曲线、椭圆、螺旋）按**长度相同**筛选。例如选中一条直线并勾选「高级」，即可全图找出与它长度相同的直线。长度比较带容差（相对与绝对各 1e-6），不受浮点误差影响。
+  - 长度只在**同一类型**之间比较（直线只与直线比，不与多段线跨类型比）；此前对曲线勾选「高级」会提示"所选对象没有扩展属性"，现改为按长度比较。
+- 版本号全项目统一 3.0.40.0。
+
+### 3.0.39.0（近期）
 - **Excel 定时保存提醒不再打扰最小化状态**：Excel 处于最小化时，定时保存提醒到期后不再弹出（此前弹窗可能出现在屏幕不可预期的位置），改为暂停计时并记住"有待提醒"；恢复窗口后立即补上这次提醒，处理完毕后重新开始计时。
 - **CAD 提取标记随关联清除而隐藏**：对已提取的块执行 QC（清除图元与当前单元格的关联）时，块中心的提取标记不再绘制；该块被 GG / TQ 重新提取时标记自动恢复。清除关联只隐藏标记，**不改动图纸中的关联信息**，其它单元格的反查与工程副本均不受影响。
 - 版本号全项目统一 3.0.39.0。
