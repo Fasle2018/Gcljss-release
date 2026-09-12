@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.41.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.42.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.41.0.exe`（约 44 MB，单文件安装包）
-- 版本：**3.0.41.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.42.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.42.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,14 @@
 
 ## 版本历史（近期）
 
-### 3.0.41.0（当前最新）
+### 3.0.42.0（当前最新）
+- **修复 AutoCAD 2025 插件完全不加载的问题**：此前在 AutoCAD 2025 中插件的功能区不出现、所有命令都不可用（只有在选项对话框里能看到页面），启动时还伴随一声提示音。根因是 2025 插件（.NET 8 宿主）误用了 **.NET Framework 版**的第三方界面库依赖，导致类型初始化失败，并连带中断了命令注册。本次为 2025 插件建立独立的依赖目录、配备正确的 .NET 8 版依赖，功能区与全部命令恢复正常。
+- **安装包体积显著减小**：由约 145 MB 降至约 68 MB。做法是按依赖关系**精确裁剪** 2025 插件的第三方库（DevExpress 由 62 个减至 15 个），并剔除 .NET 8 运行时已自带、以及插件从未引用的程序集。**AutoCAD 2012~2024 插件与 Excel 插件的依赖保持原样，不受影响。**
+- **发布流程加固**：出包前新增 **VSTO 部署清单校验**（逐项核对文件大小与 SHA-256），若安装内容与 Excel 加载项清单不一致，会直接阻止生成安装包，避免再出现"装完 Excel 插件加载失败"的包。
+- **项目结构分层**：安装目录下新增 `NetCore\` 子目录，专门存放 .NET 8（AutoCAD 2025/2026）插件及其依赖，与原有 .NET Framework 运行时彻底隔离，为后续支持新版本 AutoCAD 留出扩展位。
+- 版本号全项目统一 3.0.42.0。
+
+### 3.0.41.0（近期）
 - **绘图过程中实时显示数据**：量取（CC）与标注立管（BZLG）两个绘图命令，在拖动的过程中直接显示关键数据，不再需要事后从命令行或表格反推。
   - **量取（CC）**：拖动时预览当前这一段（线宽、颜色、线型与落笔后完全一致），并在线的中点**实时显示这一段的长度**；文字沿线的方向排列，长度口径与写入单元格的一致（含计算比例换算）。
   - **标注立管（BZLG）**：拖动时按立管**实际样式**预览（同心圆 + `X=数据值`），**所见即落点后所得**。
