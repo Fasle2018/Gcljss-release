@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.43.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.44.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.43.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.43.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.44.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.44.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,11 @@
 
 ## 版本历史（近期）
 
-### 3.0.43.0（当前最新）
+### 3.0.44.0（当前最新）
+- **修复阅读模式开启时无法编辑单元格批注**：开启阅读模式后，进入单元格批注编辑框时批注文字无法用鼠标选中（拖动选择、双击选词均无效，关闭阅读模式即恢复正常）。现调整为：编辑批注期间自动暂时隐藏行列高亮，结束编辑后自动恢复，批注内容可以正常编辑与选中；普通单元格的点击与拖动选择、单元格编辑（F2）时的光带等行为均保持不变。
+- 版本号全项目统一 3.0.44.0。
+
+### 3.0.43.0（近期）
 - **修复 AutoCAD `CREATERIBBON` 命令无法执行**：命令类缺少公开无参构造函数，导致 AutoCAD 反射创建命令实例时抛出 `MissingMethodException`；现已改为公开构造函数。命令执行时会在命令行提示重建成功、等待初始化或失败原因。
 - **修复低版本文件冷启动升级提示瞬间消失**：通过资源管理器右键“使用工程量计算书打开”或拖拽到程序图标打开低版本文件时，升级提示原为 1 秒自动关闭的通知；现改为等待用户确认的模态消息框，确认后再继续版本元数据更新、旧条件格式清理及后续批注升级询问。
 - 版本号全项目统一 3.0.43.0。
