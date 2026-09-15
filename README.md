@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.44.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.45.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.44.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.44.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.45.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.45.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,13 @@
 
 ## 版本历史（近期）
 
-### 3.0.44.0（当前最新）
+### 3.0.45.0（当前最新）
+- **CC 画线预览动画升级**：鼠标静止时持续显示四色渐变流动与呼吸发光；128 段连续渐变，完整流动周期默认 1.5 秒，固定线宽、无额外光晕、无长度文字。
+- **新增“CC流动时长”设置**：默认 1500ms，合法值为 0 或 100~10000ms；0 关闭画线特效并恢复普通 JIG 预览线；已接入设置管理器持久化与设置面板。
+- **资源与生命周期审计整改**：修复 Point3dCollection 高频未释放、补齐 AcGi 中止语义、统一 Transient 异常回滚、文档切换/关闭清理、Start 幂等、绑定命令入口文档和 XY 平面预览一致性；修复 ViewTableRecord 未释放告警。
+- 版本号全项目统一 3.0.45.0。
+
+### 3.0.44.0（近期）
 - **修复阅读模式开启时无法编辑单元格批注**：开启阅读模式后，进入单元格批注编辑框时批注文字无法用鼠标选中（拖动选择、双击选词均无效，关闭阅读模式即恢复正常）。现调整为：编辑批注期间自动暂时隐藏行列高亮，结束编辑后自动恢复，批注内容可以正常编辑与选中；普通单元格的点击与拖动选择、单元格编辑（F2）时的光带等行为均保持不变。
 - 版本号全项目统一 3.0.44.0。
 
