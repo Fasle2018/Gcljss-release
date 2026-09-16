@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.48.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.47.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.48.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.48.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.47.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.47.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,12 +44,8 @@
 
 ## 版本历史（近期）
 
-### 3.0.48.0（当前最新）
-- **Excel 功能区「检查更新」按钮支持运行时动态提醒**：程序启动约 10 秒后在空闲时静默检查远端版本；发现新版本时按钮文字自动变为「有新版本」、图标切换为自绘提醒图标（蓝色更新箭头 + 红色提示点）、鼠标悬停显示目标版本号，点击后仍走原有下载与安装流程。
-- **不影响用户操作**：网络检查以异步方式执行，不阻塞 Excel UI；无新版本、断网或解析失败时保持原样且不弹窗；插件退出时停止尚未触发的检查计时器。
-- 版本号全项目统一 3.0.48.0。
 
-### 3.0.47.0（近期）
+### 3.0.47.0（当前最新）
 - **修复 BZLG（标注立管）JIG 预览数据不随输入更新**：执行 BZLG 时，预览文字此前始终显示命令启动时下拉列表的第一项；现改为拖动期间实时读取当前立管数据值，内容变化后立即刷新预览，预览与实际落点记录保持一致。
 - 版本号全项目统一 3.0.47.0。
 
