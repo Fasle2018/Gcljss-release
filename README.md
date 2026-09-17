@@ -1,4 +1,4 @@
-# 工程量计算书 · 发布版本
+﻿# 工程量计算书 · 发布版本
 
 本仓库（`Fasle2018/Gcljss-release`）仅存放 **工程量计算书** 的正式发布安装包，供用户下载与自动更新。**不含源码**；源码与开发信息请访问主仓库，如需反馈问题请通过 README 底部的联系方式。
 
@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.49.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.50.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.49.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.49.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.50.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.50.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,7 @@
 
 ## 版本历史（近期）
 
-### 3.0.49.0（当前最新）
+### 3.0.50.0（当前最新）
 - **修复 RibbonX 互斥属性导致自定义功能区不显示**：3.0.48.0 的“检查更新”按钮同时声明静态 `label`、`imageMso`、`screentip` 与动态 `getLabel`、`getImage`、`getScreentip`，违反 RibbonX 规范，导致整个自定义功能区不加载。本次移除同元素上的静态互斥属性，保留动态回调与 `onAction`。
 - **正式恢复“检查更新”异步动态提醒**：程序启动约 10 秒后空闲时异步检查远端版本；发现新版时按钮文字自动变为“有新版本”、图标切换为带红色提示点的提醒图标、悬停提示显示目标版本号，点击后仍走原有下载与安装流程。
 - **不影响用户操作**：网络检查异步执行，不阻塞 Excel UI；无新版、断网或解析失败时保持原样且不弹窗；插件退出时停止尚未触发的检查计时器。
