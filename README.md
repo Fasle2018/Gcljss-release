@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.56.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.57.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.56.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.56.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.57.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.57.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,14 @@
 
 ## 版本历史（近期）
 
-### 3.0.56.0（当前最新）
+### 3.0.57.0（当前最新）
+
+**3.0.57.0**
+- **Excel 功能区界面精简**：移除 5 处使用频率低、与 Excel 内置功能重复的元素 —— 「关闭」按钮、粘贴下拉（`PasteMenu`）、整个「打印」组（打印标题 / 打印区域 / 打印预览）、「修复」与「修复批注」按钮。改动以 XML 注释形式保留在 `Ribbon/xlRibbonNew.xml`，可随时取消注释恢复。
+  - ⚠️ 注意：功能区是「修复 / 修复批注」两个命令的**唯一入口**（`修复_Click` / `修复批注_Click` 回调代码仍保留，但界面上不再可达）。
+- 版本号全项目统一 3.0.57.0。
+
+### 3.0.56.0（近期）
 
 **3.0.56.0**
 - **修复升级链路：校验失败后「待安装数据」被后台任务重新写回（本版核心）**。现象：主程序启动时已提示「更新包校验未通过，已放弃本次升级」，但注册表 `Update_*` 数据仍残留，且每次启动重复提示。根因：下载任务的 SHA256 校验（约 68 MB 安装包）在部分机器上耗时可达数十秒，用户在主程序中放弃升级并清除数据**之后**，后台任务才完成并写回 → 数据「复活」。现引入「清除优先」语义：当清除时刻晚于本轮任务开始时刻时，后台任务不再写回；正常升级流程行为不变。
