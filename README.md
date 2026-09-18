@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.55.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.56.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.55.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.55.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.56.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.56.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,7 @@
 
 ## 版本历史（近期）
 
-### 3.0.55.0（当前最新）
+### 3.0.56.0（当前最新）
 
 **3.0.54.0**
 - **全面代码审计与修复**：对全项目（278 文件 / 约 57,000 行）完成系统性审计，识别 201 项问题；本次修复其中 24 项「不改变现有功能」的条目（资源释放、判空防护、异常兜底、生命周期清理等），并补齐关键失败路径的日志。审计文档见 `DOC/审计-2026-09-17/`。
