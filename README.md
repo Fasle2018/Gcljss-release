@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.53.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.54.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.53.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.53.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.54.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.54.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,7 @@
 
 ## 版本历史（近期）
 
-### 3.0.53.0（当前最新）
+### 3.0.54.0（当前最新）
 - **阅读模式光带：修复非标准行高 / 非整百缩放下的累积偏差**：光带位置按行逐行取整、尺寸却使用 `Range.Height` 连续值，两套像素模型不一致，非标准行高时每行取整误差随行数线性累积，导致多格选区光带底部（与右边界）少覆盖 1~2 行。现改为“可见窗口内逐行 / 逐列边界像素累加 + 与网格区域求交”，单格与多格统一路径，列方向同步修复；冻结 / 拆分窗格与合并缓存保留原有逻辑。实测 100% / 110% / 115% / 130% 缩放下偏差 0~±1px。
 - **修复点击左上角全选整表时的错误（超出当前范围）**：全选整表时选区单元格数约 171 亿，超出 COM 的 Int32 表示范围，原先访问 `Count` / `Width` / `Height` 会抛出 `DISP_E_OVERFLOW`。现改为在访问前用行 / 列数判定并分流，不再读取超范围的属性；全选时阅读模式光带正常覆盖可见区域，快速检索面板自动隐藏。
 - **修复查找窗体刷新后分组展开状态被重置**：在 Excel 侧修改单元格数据触发刷新时，分组展开状态此前会丢失（仅当前焦点所在分组保持展开）。现采用视图状态快照：分组展开按“分组列值路径 + 层级”恢复（不依赖序号主键），选中单元格 / 聚焦行列 / 滚动偏移在总行数不变时恢复；行数变化时保守降级，并抑制刷新期间的 Excel 选区导航；编辑中延后刷新、防抖重入防丢、重置时清理快照。
