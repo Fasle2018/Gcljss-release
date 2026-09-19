@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.58.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.59.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.58.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.58.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.59.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.59.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,20 @@
 
 ## 版本历史（近期）
 
-### 3.0.58.0（当前最新）
+### 3.0.59.0（当前最新）
+
+**3.0.59.0**
+- **CC 画线动画：随对象颜色自适应的流动配色（本版核心）**。此前固定的「紫-青-粉」渐变在洋红等中高亮度图层上明度与色相都过于接近，流动几乎看不出来（实测"明显区别于对象色"的色段仅占 43%~71%）。现改为：
+  - **N 色（8 色）铺满色相环，并在对象色相 ±45° 范围内留空** → 无论图层是什么颜色，线上总有远离该色的色段在持续移动；
+  - **相邻色一亮一暗交错**：流动时呈现滚动的明暗条纹，动态感明显强于原来的纯色相流动（明暗跨度普遍接近翻倍）；
+  - **明度随对象颜色反向调整**：对象偏暗时用明亮流动色，偏亮时整体压暗；黑/白/灰等无彩色对象改用"恒定明度 + 取与对象色差更大的一侧"；
+  - 效果（离线复算，沿整条线采样）：与对象色明显反差的色段占比由**最差 43%** 提升到**平均 97.5%、最差 86%**——洋红 65%→100%、青 71%→100%、白 57%→100%。
+- **修正索引色取色**：ACI 基本色与灰阶改用内置精确表、真彩色按颜色方式分流，避免个别环境下取到空值/黑色导致配色误判。
+- **「CC 流光时长」默认 1500 毫秒**（一次完整流动的时长，0=关闭特效），呼吸周期同步为 1.6 秒。
+- **全程仅做视觉渲染**：不改动图纸中的任何对象、不写入数据、不参与取点与提交；退出命令即清除预览。
+- 版本号全项目统一 3.0.59.0。
+
+### 3.0.58.0（近期）
 
 **3.0.58.0**
 - **CC 画线：命令期间所画的线持续保持动画预览（本版核心）**。此前动画只在「正在拖动的这一段」上显示，一段落笔后动画立即消失；现在整条 CC 命令期间，**已落笔的每一段与当前拖动段一起**持续显示四色渐变流动 + 亮度呼吸，直到退出命令的瞬间才统一停止并清除预览、线段恢复普通显示。
