@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.57.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.58.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.57.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.57.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.58.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.58.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,18 @@
 
 ## 版本历史（近期）
 
-### 3.0.57.0（当前最新）
+### 3.0.58.0（当前最新）
+
+**3.0.58.0**
+- **CC 画线：命令期间所画的线持续保持动画预览（本版核心）**。此前动画只在「正在拖动的这一段」上显示，一段落笔后动画立即消失；现在整条 CC 命令期间，**已落笔的每一段与当前拖动段一起**持续显示四色渐变流动 + 亮度呼吸，直到退出命令的瞬间才统一停止并清除预览、线段恢复普通显示。
+  - 退出边界全覆盖：正常结束 / ESC / 拖动中 ESC / 空回车 / 批注容量阻断 / 命令异常 / 切换或关闭图形 / 插件卸载，均立即结束动画且无预览残留；命令执行期间做缩放等透明操作不会打断动画。
+  - 数据链路零改动：逐段入库、扩展数据、批注、单元格写入与原行为完全一致；动画只是显示层，不写入图纸、不进撤销历史。
+- **CC 画线：恢复拖动时的实时长度文字**。拖动过程中在线的旁边显示当前段长度，数值与写入单元格的一致（含计算比例换算）；文字的位置、角度、颜色复刻落笔后实体上「标注重绘」的口径 —— **预览所见即提交后所得**。
+  - **始终清晰可见**：字高按当前视图高度换算（屏幕上大小恒定），且不小于预览线宽 —— 缩放到任何级别、线宽多粗都不会看不清。
+- **稳定性与现场诊断**：预览动画的清理与刷新失败路径补齐留痕（写入 `%TEMP%\Gcljss_CC.log`），便于定位「退出命令后预览残留」一类问题；长度口径统一为与入库一致的平面距离。
+- 版本号全项目统一 3.0.58.0。
+
+### 3.0.57.0（近期）
 
 **3.0.57.0**
 - **Excel 功能区界面精简**：移除 5 处使用频率低、与 Excel 内置功能重复的元素 —— 「关闭」按钮、粘贴下拉（`PasteMenu`）、整个「打印」组（打印标题 / 打印区域 / 打印预览）、「修复」与「修复批注」按钮。改动以 XML 注释形式保留在 `Ribbon/xlRibbonNew.xml`，可随时取消注释恢复。
