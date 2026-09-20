@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.60.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.61.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.60.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.60.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.61.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.61.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,16 @@
 
 ## 版本历史（近期）
 
-### 3.0.60.0（当前最新）
+### 3.0.61.0（当前最新）
+
+**3.0.61.0**
+- **修复：快捷键反查 CAD 偶发弹出「错误:异常来自 HRESULT:0x800AC472」（本版核心）**。根因是 Excel 在用户界面操作进行中（例如鼠标按住左键拖拽选区尚未松手、或在编辑栏输入公式）会临时挂起对象模型，此时读取单元格批注会被拒绝（该错误码即 Excel 的 VBA_E_IGNORE）；按 Ctrl+R 时若手指仍在拖拽，恰好命中这个极短的时间窗 —— 这也解释了为什么只有快捷键入口偶发（右键菜单与功能按钮的点击动作必然先结束手势）。
+- **修复方式：选区批注改为「非阻塞延后读取」**。优先立即读取（空闲场景与以往完全一致、零延迟）；若恰好被挂起，则交回界面消息循环、每 120 毫秒重试一次，**等你松手后自动完成反查**，全程不冻结界面（上限 15 秒，超时改为气泡提示）。**不再弹出红色错误框**。
+- **附**：获取 AutoCAD 实例在宿主忙时不再原地等待重试（此前那种等待方式会阻塞界面），改为记录日志并给出可操作提示。
+- **内部优化**：清理了 109 处只在调试构建生效、发布包中完全无效的调试输出语句，并删除零引用的调试辅助类；关键失败路径统一改用发布版同样有效的文件日志（`%TEMP%\工程量计算书\TestLog\`）。
+- 版本号全项目统一 3.0.61.0。
+
+### 3.0.60.0（近期）
 
 **3.0.60.0**
 - **反查瞬态高亮新增「流光」效果（本版核心）**：颜色沿对象长度流动的渐变，与 CC 画线特效同源。设置面板「动态显示」三选：无 / 呼吸 / 流光；选「流光」时自动隐藏只对呼吸生效的子选项，避免"改了没效果"的误导。
