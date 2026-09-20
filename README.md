@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.59.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.60.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.59.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.59.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.60.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.60.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,18 @@
 
 ## 版本历史（近期）
 
-### 3.0.59.0（当前最新）
+### 3.0.60.0（当前最新）
+
+**3.0.60.0**
+- **反查瞬态高亮新增「流光」效果（本版核心）**：颜色沿对象长度流动的渐变，与 CC 画线特效同源。设置面板「动态显示」三选：无 / 呼吸 / 流光；选「流光」时自动隐藏只对呼吸生效的子选项，避免"改了没效果"的误导。
+- **新增「流光细腻度」设置**（动态显示 → 流光细腻度）：四档 —— 高(每段8像素) / **标准(每段12像素，默认)** / 低(16像素) / 最低(20像素)。档位越高色带越窄越细腻、绘制量越大；默认"标准"覆盖绝大多数场景（反查对象在一百个以内时绰绰有余）。
+- **流光性能优化**：新增"按对象屏幕长度取段数"的口径（效果不再随反查对象变多而下降），配合几何属性缓存，实测 916 个对象的场景帧内耗时由约 23ms 降至约 12ms，鼠标操作流畅。
+- **自动档位降级（性能兜底）**：反查对象很多、当前档位跑不动时，先按实测帧率**自动降到更低的档位**继续维持流光；连"最低"档都不流畅才回退为**呼吸**效果。降级只在本会话内生效、**不改动设置**，重启 CAD 即可重新尝试。命令行只给一句提示，详细过程写入日志。
+- **修复流光循环接缝**：此前每走完一个流动周期会整体闪一下，现改为首尾无缝衔接。
+- **全程仅做视觉渲染**：不改动图纸中的任何对象、不写入数据、不参与取点与提交。
+- 版本号全项目统一 3.0.60.0。
+
+### 3.0.59.0（近期）
 
 **3.0.59.0**
 - **CC 画线动画：随对象颜色自适应的流动配色（本版核心）**。此前固定的「紫-青-粉」渐变在洋红等中高亮度图层上明度与色相都过于接近，流动几乎看不出来（实测"明显区别于对象色"的色段仅占 43%~71%）。现改为：
