@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.61.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.62.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.61.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.61.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.62.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.62.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,18 @@
 
 ## 版本历史（近期）
 
-### 3.0.61.0（当前最新）
+### 3.0.62.0（当前最新）
+
+**3.0.62.0**
+- **修复：呼吸高亮效果变弱（本版核心）**。上一版为「流光」调整参数时，连带把两种效果**共用**的「线宽脉动」默认值从 2 降到了 1，呼吸的线宽胀缩幅度随之减半；同时设置面板「恢复本页默认」写入的一组历史错误值虽已修正，但那组旧值恰好让呼吸更"抢眼"。本版把默认值调到更明显的档位：
+  - **呼吸周期 1500 → 1200 毫秒**（脉动节奏更急促）；
+  - **线宽脉动 1 → 1.5**（线宽在 100%~250% 之间胀缩）；
+  - 亮度下限 0.2、呼吸陡度 1 保持不变。
+- **设置面板文字简化**：「测量」分部的「CC流光时长」改为「**流光时长**」。
+- **说明**：默认值只对**新用户**或**点过「恢复本页默认」**的用户生效；若你此前保存过自定义值，需在面板上手动调整（或点一次「恢复本页默认」）。
+- 版本号全项目统一 3.0.62.0。
+
+### 3.0.61.0（近期）
 
 **3.0.61.0**
 - **修复：快捷键反查 CAD 偶发弹出「错误:异常来自 HRESULT:0x800AC472」（本版核心）**。根因是 Excel 在用户界面操作进行中（例如鼠标按住左键拖拽选区尚未松手、或在编辑栏输入公式）会临时挂起对象模型，此时读取单元格批注会被拒绝（该错误码即 Excel 的 VBA_E_IGNORE）；按 Ctrl+R 时若手指仍在拖拽，恰好命中这个极短的时间窗 —— 这也解释了为什么只有快捷键入口偶发（右键菜单与功能按钮的点击动作必然先结束手势）。
