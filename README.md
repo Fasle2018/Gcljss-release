@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.63.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.65.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.63.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.63.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.65.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.65.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,16 @@
 
 ## 版本历史（近期）
 
-### 3.0.63.0（当前最新）
+### 3.0.65.0（当前最新）
+
+**3.0.65.0**
+- **修复：装了新版，Excel 却仍运行旧版加载项（本版核心）**。注册表里的加载项清单此前写成裸路径，VSTO 会先把加载项复制进 ClickOnce 缓存，此后**长期从缓存加载**，缓存一旦存在就不再回安装目录取新版 —— 实测安装目录已升到 3.0.64.0，Excel 进程内实际加载的仍是缓存里的 3.0.62.0，表现为「升级后软件行为毫无变化」。现改为微软标准写法 `file:///<路径>|vstolocal`（就地加载、不使用缓存），**以后升级即刻生效、无需再清缓存**；安装/卸载程序对清单路径的解析同步统一。
+- **改进：插件关闭时主动释放 Excel 对象引用**。此前 `Application` / `Workbook` / `ListObject` 三个引用只赋值不释放，回收被推迟到卸载阶段，可能让 Excel 多等一次 60 秒级超时；现改为关闭时主动断开，实测该步耗时 11 毫秒、整个关闭清理 22 毫秒。
+- **新增：关闭过程毫秒级诊断留痕**（启动进程号、工作簿关闭时刻、各清理步耗时、总耗时），正式版同样有效，便于日后快速区分「插件慢」与「外部因素」。
+- **说明**：本版同时实测确认「关闭 Excel 后 EXCEL.EXE 驻留 30~60 秒」与本程序无关 —— 干净环境、安全模式（反而更慢）、Word 对照均能复现，根因是本机到 Microsoft 服务的 TCP 建连约需 10 秒，Office 关闭时的联网请求收尾被放大；完整排查过程见主仓库 `DOC/排障-Excel关闭后进程驻留-2026-09-21.md`。
+- 版本号全项目统一 3.0.65.0。
+
+### 3.0.63.0（近期）
 
 **3.0.63.0**
 - **升级前备份改到程序根目录（本版核心）**：新版本打开旧版本文件时会**先自动备份再升级**，备份位置由「我的文档\工程量计算书\升级备份」改为**程序安装根目录下的「升级备份」文件夹** —— 与「**工程备份**」目录并列，打开程序目录即可看到，便于查找与取用。
