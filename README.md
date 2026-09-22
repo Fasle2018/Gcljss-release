@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.65.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.66.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.65.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.65.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.66.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.66.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,17 @@
 
 ## 版本历史（近期）
 
-### 3.0.65.0（当前最新）
+### 3.0.66.0（当前最新）
+
+**3.0.66.0**
+- **反查高亮：线段中间的数值文字现在会一并高亮（本版核心）**。反查时在原来文字的位置覆盖一个**同内容、同位置、同字号**的数字，底色为固定深色 —— 因此**白色底图与深色底图下都清晰可辨**（此前白底图上白字看不见的问题不再存在）；数字颜色跟随呼吸/流光特效变化，且**永远不会被加粗的线条盖住**（即使把「线宽脉动」调到最大）。
+- **立管（点位）高亮改为"由内向外"**：呼吸模式下 4 个同心圆的明暗波由中心向外扩散；流光模式下颜色沿半径由内向外一圈圈扩散。流光模式下立管**改用原生圆绘制**，不再出现"整圈像刺球"的锯齿形状。
+- **文字高亮与线条高亮分离，大数量反查更流畅**：文字不再随动画逐帧重画（约每秒刷新 6 次），颜色只取少数几档，反查几百个对象时开销显著降低。
+- **重绘的长度数字不再带背景色块**：压在线上的数字不再把线"挖断"一块。
+- **内部加固（不可见）**：瞬态注册失败的留痕与处理、关闭动态显示/卸载插件时的高亮清理更彻底、文字样式与字高异常会写诊断日志。
+- 版本号全项目统一 3.0.66.0。
+
+### 3.0.65.0（近期）
 
 **3.0.65.0**
 - **修复：装了新版，Excel 却仍运行旧版加载项（本版核心）**。注册表里的加载项清单此前写成裸路径，VSTO 会先把加载项复制进 ClickOnce 缓存，此后**长期从缓存加载**，缓存一旦存在就不再回安装目录取新版 —— 实测安装目录已升到 3.0.64.0，Excel 进程内实际加载的仍是缓存里的 3.0.62.0，表现为「升级后软件行为毫无变化」。现改为微软标准写法 `file:///<路径>|vstolocal`（就地加载、不使用缓存），**以后升级即刻生效、无需再清缓存**；安装/卸载程序对清单路径的解析同步统一。
