@@ -1,4 +1,4 @@
-﻿# 工程量计算书 · 发布版本
+# 工程量计算书 · 发布版本
 
 本仓库（`Fasle2018/Gcljss-release`）仅存放 **工程量计算书** 的正式发布安装包，供用户下载与自动更新。**不含源码**；源码与开发信息请访问主仓库，如需反馈问题请通过 README 底部的联系方式。
 
@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.71.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.72.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.71.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.71.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.72.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.72.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,15 @@
 
 ## 版本历史（近期）
 
-### 3.0.71.0（当前最新）
+### 3.0.72.0（当前最新）
+
+- **块对象的「圆内五角」提取标记，在反查 / 高亮期间改为瞬态动画（本版核心）**：沿内五角星的 5 条边跑霓虹色流光（复用项目既有的 8 色流动配色），流光跑完一遍后外圆做一次亮度呼吸，两步循环往复。
+  - 路径走向为「左上 → 右上 → 左下 → 中上 → 右下 → 左上」（与重绘的静态标记同一套顶点顺序）；两步时长跟随「选项 → 动态显示 → 瞬态流动时长」（与直线对象流光同一个设置，默认 1.5 秒 / 步，一个完整循环 3 秒；**改设置后需重新反查一次生效**）。
+  - 线条为细线 + 逐段渐变流光（线宽取"最小可见宽度"，与直线对象流光同口径）；外圆改用系统圆原语、**只切换颜色**（不做线宽涨缩，消除原有的"毛刺"观感）。
+  - 动画期间由瞬态接管、重绘的静态标记让位（避免重影）；**打印 / 发布时照常绘制静态标记**；瞬态不可用时自动回退静态标记。
+  - 带标记的块数量很多时设有容量上限：超出部分保持静态标记，"该块已被提取"的信息不缺失。
+- 版本号全项目统一 3.0.72.0。
+### 3.0.71.0（近期）
 
 - **`CCX`（连续量取）一条命令覆盖全部计算方式：新增 `G` = 命令期间布置立管（本版核心）**。此前要把立管算进本次量取，得先退出 `CCX` 用「布置立管」（`BZLG`）布置、再回来挑拣；本版在命令期间直接复用同一套浮动输入窗与预览（填表达式 → 拖点落位），落下的立管与挑拣的对象一起参与本次统计。
 - **`CCX` 完成时命令行按 `GG` 同款格式输出统计**：
