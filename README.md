@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.81.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.82.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.81.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.81.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.82.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.82.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,15 @@
 
 ## 版本历史（近期）
 
-### 3.0.81.0（当前最新）
+### 3.0.82.0（当前最新）
+
+- **修复 CCX 画线期间"集合高亮变成纯色"（本版核心）**：CCX 命令执行期间，已在集合内的对象高亮显示为**纯色**（线中间的标注文字颜色也**全部相同**，表现为整屏同色的一批数字）；此时输入 `T` 进入挑拣模式，又能恢复正常流光。
+  - **根因**：上一版把 CCX 的集合高亮改为复用"反查瞬态"（即把两套本应分离的方案合并成一套）后，画线期间的 **JIG 绘制上下文**会使逐顶点色不被采用，退化为兜底单色。四个观测互相印证：CC 预览线（逐段绘制）始终流光；CCX 画线（合并提交 + JIG）纯色；CCX 挑拣（合并提交，非 JIG）流光；FX 反查（合并提交，非 JIG）流光。
+  - **修法**：**画线瞬态与反查瞬态恢复各自独立的渲染方案** —— 画线期间走"逐段绘制"（原方案，流光稳定），反查仍走"整帧合并提交"（保留其性能优势：400 对象反查的瞬态耗时仍在 **0.1~0.2ms** 量级）。**画线期间优先保证效果**，且画线集合通常只有几十个对象，逐段绘制的开销完全够用。
+- **补齐 `SettingsDefaults.xml` 的 4 个流光设置键**（`TransientFlowSegments` / `TransientFlowPalette` / `TransientFlowInterval` / `TransientBreathInterval`）：纯一致性修正，不影响功能（该文件条目"只写不读"，默认值以属性特性为权威）。
+- 版本号全项目统一 3.0.81.0。
+
+### 3.0.80.0（近期）
 
 - **反查流光改为"整帧一次合并提交"，性能与观感同时改善（本版核心）**：此前流光为每一小段单独提交一次绘图原语（128 对象近景需 1.1 万次），本版改为整帧一次性提交顶点色渐变。
   - **实测**：400 对象场景瞬态耗时由 6~12ms 降至 **0.1~0.2ms**，帧耗时平滑值 **3.3~3.8ms**（改动前 26.2ms 且会触发"回退呼吸"）；观感为**完整平滑彩虹、无色块**。
