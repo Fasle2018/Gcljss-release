@@ -1,4 +1,4 @@
-# 工程量计算书 · 发布版本
+﻿# 工程量计算书 · 发布版本
 
 本仓库（`Fasle2018/Gcljss-release`）仅存放 **工程量计算书** 的正式发布安装包，供用户下载与自动更新。**不含源码**；源码与开发信息请访问主仓库，如需反馈问题请通过 README 底部的联系方式。
 
@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.79.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.80.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.79.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.79.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.80.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.80.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,7 @@
 
 ## 版本历史（近期）
 
-### 3.0.79.0（当前最新）
+### 3.0.80.0（当前最新）
 
 - **功能区下拉按钮恢复正常使用（本版核心修复）**：此前点开功能区下拉后，鼠标一移出功能区（下拉列表显示在功能区下方），焦点就被交还给绘图区、下拉随之被关闭 —— 表现为「下拉按钮永远点不到」。本版把「焦点交还」的判定扩展到**功能区自身的下拉/弹出**：弹出打开期间不再抢焦点；其余场景（鼠标移入绘图区自动获焦、预览线跟随鼠标）行为不变。
 - **功能区布局调整**：把原「量取 ▾（下拉里是连续测量）」拆成**两个独立按钮** —— 「量取」留在原处，「连续测量」移到「布置立管」的**上一行**；两个命令都不再依赖下拉。
