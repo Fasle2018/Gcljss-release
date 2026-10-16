@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.84.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.85.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.84.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.84.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.85.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.85.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,12 @@
 
 ## 版本历史（近期）
 
-### 3.0.84.0（当前最新）
+### 3.0.85.0（当前最新）
+
+- **修复安装包的一个缺陷（本版核心）**：安装/卸载时清理 VSTO 部署元数据只删子键、留下**悬空索引** —— 后果是**开发机上的 Visual Studio** 执行「重新生成」时报 `SetOffice2007AddInRegistration` 失败 / `0x80070002`（表现为"编译 VSTO 加载项失败"，且 Debug 不报、仅 Release 报）。现在会同步清理索引值，并顺带修复既有机器上已残留的悬空索引。
+- 功能与 3.0.84.0 一致（终端用户无感知），本版主要为带入上述安装脚本修复。
+
+### 3.0.84.0（近期）
 
 - **修复 AutoCAD 2025 上「CC/CCX 画线时流光只在鼠标移动时刷新」（本版核心）**：把动画驱动改为按版本选择（AutoCAD 2020 及更早保持原计时器不动；2021 及以后改用线程池计时器 + 主线程投递），并在取点会话中主动触发画面出帧（按官方顺序刷新图形 + 一次「原地不动」的鼠标消息）。**鼠标静止时流光不再停住。**
 - **高版本流光彩线残留处置定案**：AutoCAD 2020 及更早使用 `Main` 绘制模式；2021 及以后使用 `DirectShortTerm`，不再留下擦不掉的彩线。另保留一条可选的高保真渲染路线（`Mesh`，默认关闭，适合对象数量较少时的截图/演示场景）。
