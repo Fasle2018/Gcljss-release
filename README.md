@@ -1,4 +1,4 @@
-﻿# 工程量计算书 · 发布版本
+# 工程量计算书 · 发布版本
 
 本仓库（`Fasle2018/Gcljss-release`）仅存放 **工程量计算书** 的正式发布安装包，供用户下载与自动更新。**不含源码**；源码与开发信息请访问主仓库，如需反馈问题请通过 README 底部的联系方式。
 
@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.83.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.84.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.83.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.83.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.84.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.84.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,14 @@
 
 ## 版本历史（近期）
 
-### 3.0.83.0（当前最新）
+### 3.0.84.0（当前最新）
+
+- **修复 AutoCAD 2025 上「CC/CCX 画线时流光只在鼠标移动时刷新」（本版核心）**：把动画驱动改为按版本选择（AutoCAD 2020 及更早保持原计时器不动；2021 及以后改用线程池计时器 + 主线程投递），并在取点会话中主动触发画面出帧（按官方顺序刷新图形 + 一次「原地不动」的鼠标消息）。**鼠标静止时流光不再停住。**
+- **高版本流光彩线残留处置定案**：AutoCAD 2020 及更早使用 `Main` 绘制模式；2021 及以后使用 `DirectShortTerm`，不再留下擦不掉的彩线。另保留一条可选的高保真渲染路线（`Mesh`，默认关闭，适合对象数量较少时的截图/演示场景）。
+- **稳定性**：清理了一处瞬态通知队列的引用泄漏（每次反查会残留一个对象引用，长会话下持续累积）。
+- **可维护性**：源码注释精简约 37%，修正若干与代码不符的过期注释（不影响任何功能）。
+
+### 3.0.83.0（近期）
 
 - **反查高亮文字的颜色随流光切换（本版核心）**：反查时线段中间的长度标注文字、以及立管 `X=值` 文字，颜色改为**跟随流光依次切换** —— 每个标签每 375ms 换一次色，并按位置分成 16 组错开刷新，形成"流光扫过、文字依次换色"的观感。
   - **性能设计**：文字层拆成 16 个独立瞬态，**每帧只重建"到期"的那一组**（单次约 3.9ms），而不是整批重建（3600 个标签一次要约 63ms）。刷新周期跟随「瞬态流动时长」自动推导，并设有 300ms 下限防止设置过小时卡顿。
