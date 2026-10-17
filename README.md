@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.85.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.86.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.85.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.85.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.86.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.86.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,12 @@
 
 ## 版本历史（近期）
 
-### 3.0.85.0（当前最新）
+### 3.0.86.0（当前最新）
+
+- **优化：「快速检索」候选列表只在计算书表格范围内检索（本版核心）**：表格下方未纳入表格的数据不再进入候选列表（检索范围与缓存失效口径统一为 ListObject 表范围）；同时，切换单元格时不再触发项目名称标签计算，选中与切换更流畅。
+- 本次为检索口径收敛 + 性能优化，其余功能与 3.0.85.0 一致（终端用户仅感知"表外数据不参与检索"这一处变化）。
+
+### 3.0.85.0（近期）
 
 - **修复安装包的一个缺陷（本版核心）**：安装/卸载时清理 VSTO 部署元数据只删子键、留下**悬空索引** —— 后果是**开发机上的 Visual Studio** 执行「重新生成」时报 `SetOffice2007AddInRegistration` 失败 / `0x80070002`（表现为"编译 VSTO 加载项失败"，且 Debug 不报、仅 Release 报）。现在会同步清理索引值，并顺带修复既有机器上已残留的悬空索引。
 - 功能与 3.0.84.0 一致（终端用户无感知），本版主要为带入上述安装脚本修复。
