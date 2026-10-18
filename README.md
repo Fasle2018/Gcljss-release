@@ -1,4 +1,4 @@
-﻿# 工程量计算书 · 发布版本
+# 工程量计算书 · 发布版本
 
 本仓库（`Fasle2018/Gcljss-release`）仅存放 **工程量计算书** 的正式发布安装包，供用户下载与自动更新。**不含源码**；源码与开发信息请访问主仓库，如需反馈问题请通过 README 底部的联系方式。
 
@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.88.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.89.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.88.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.88.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.89.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.89.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,8 +44,15 @@
 
 ## 版本历史（近期）
 
-### 3.0.88.0（当前最新）
+### 3.0.89.0（当前最新）
 
+- **修复 EXCEL「文件被锁定、不能编辑」的偶发问题（本版核心）**：使用本程序保存文件后，少数情况下工作表会停留在保护状态 —— 单元格无法输入、提示"工作表受保护"，需要再保存一次才能恢复。现已从根上修复：保存后可立即继续编辑；**取消"另存为"、保存失败等操作后同样立即恢复可编辑**，不再需要"再存一次盘"。
+- **修复打开文件后可能仍被锁定的个别情况**（含程序自动启动并打开工程文件的场景），打开即可编辑。
+- **修复含图表工作表的工作簿在保存/打开时的保护异常**（可能导致保存后未锁定或打开后无法编辑）。
+- 保存成功后不再误显示"未保存"标记，减少无意义的"是否保存更改"提示与重复保存提醒。
+- 其余功能与 3.0.88.0 一致。
+
+### 3.0.88.0（近期）
 - **修复卸载/重装链路的两个缺陷（本版核心）**：① 卸载器原先不检测文件占用，若 Excel / AutoCAD / 主程序 / 造价工具正在运行，卸载会删不掉被占用的文件却已删除卸载项与注册信息，导致安装目录残留、之后无法再自动卸载；现在卸载开始即检测，占用时**明确提示原因并取消卸载**（不删除任何内容），关闭相关程序后重试即可。② 安装时检测到"旧版残留目录"不再中止并要求手动删除，改为记录日志后**按覆盖安装继续**（用户数据与备份保留），装一次新版即可恢复。
 - 安装/升级前的环境检测新增"造价工具"（与既有 Excel / AutoCAD / 主程序检测口径一致）。
 - 其余功能与 3.0.87.0 一致。
