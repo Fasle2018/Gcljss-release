@@ -1,4 +1,4 @@
-# 工程量计算书 · 发布版本
+﻿# 工程量计算书 · 发布版本
 
 本仓库（`Fasle2018/Gcljss-release`）仅存放 **工程量计算书** 的正式发布安装包，供用户下载与自动更新。**不含源码**；源码与开发信息请访问主仓库，如需反馈问题请通过 README 底部的联系方式。
 
@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.89.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.90.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.89.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.89.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.90.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.90.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,14 @@
 
 ## 版本历史（近期）
 
-### 3.0.89.0（当前最新）
+### 3.0.90.0（当前最新）
+
+- **FX 反查大幅提速（本版核心）**：不再每次把工作簿另存副本再解析，改为向 Excel 加载项请求 E 列批注的现算快照（两阶段 COM）。反复反查、点击条目在 Excel 与 CAD 之间切换明显加快；Excel 忙 / 旧版加载项 / 超时自动回退原 XML 路径，功能不丢。
+- **反查切换计算表更准**：Excel 侧返回计算表的 VBA CodeName（如 `Sheet1`，改标签名不影响）加位置/标签名兜底；当前停在封面/汇总表时点击反查条目，也能准确跳到计算表对应单元格并滚动到屏幕。切换条目的 Excel/工作表/CAD 对象选择缓存与事件抑制同步优化。
+- **CC/CCX 画线支持三种效果（本版核心）**：新增「无 / 呼吸 / 流光」三态，默认「呼吸」（基础画线；部分电脑流光会卡死的问题不再默认触发），需要流光时可在设置中启用；流光时长统一控制。旧「流光画线」开关会自动迁移。
+- **稳定性与兼容**：保留旧版 Excel / 无自动化对象时的 XML 回退；发版关闭新增诊断日志开关，减少现场无谓写盘；其余功能与 3.0.89.0 一致。
+
+### 3.0.89.0（近期）
 
 - **修复 EXCEL「文件被锁定、不能编辑」的偶发问题（本版核心）**：使用本程序保存文件后，少数情况下工作表会停留在保护状态 —— 单元格无法输入、提示"工作表受保护"，需要再保存一次才能恢复。现已从根上修复：保存后可立即继续编辑；**取消"另存为"、保存失败等操作后同样立即恢复可编辑**，不再需要"再存一次盘"。
 - **修复打开文件后可能仍被锁定的个别情况**（含程序自动启动并打开工程文件的场景），打开即可编辑。
