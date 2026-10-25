@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.90.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.91.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.90.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.90.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.91.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.91.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,13 @@
 
 ## 版本历史（近期）
 
-### 3.0.90.0（当前最新）
+### 3.0.91.0（当前最新）
+
+- **修复反查高亮文字"缩放不跟手"的问题（本版核心）**：多对象或长多段线反查后再用滚轮缩放，线段中间的长度标注文字有时不跟着屏幕缩放（停在偏大 / 偏小的大小，或明显延迟），立管文字相对正常。根因是文字尺寸同步的"触发判断"与"实际计算"用了不同时刻的视野值，停止缩放后不再重算；现已统一为同一来源并每帧更新，停止缩放后约 0.2 秒内落到正确大小。
+- **反查窗口内的文本整体调大约 1.5 倍**：立管 X=值 与多段线中间长度标注文字，在反查"缩放到对象"后的窗口内显示更大（实测约 1.56 倍；文字尺寸按 1.25 倍档位量化，个别窗口约 1.25 倍）。若觉得过大，可在「设置 → 文本 → 反查文字放大系数」中调小（越界后文字仍随图形缩小，不会占满屏幕）。
+- 其余功能与 3.0.90.0 一致。
+
+### 3.0.90.0（近期）
 
 - **FX 反查大幅提速（本版核心）**：不再每次把工作簿另存副本再解析，改为向 Excel 加载项请求 E 列批注的现算快照（两阶段 COM）。反复反查、点击条目在 Excel 与 CAD 之间切换明显加快；Excel 忙 / 旧版加载项 / 超时自动回退原 XML 路径，功能不丢。
 - **反查切换计算表更准**：Excel 侧返回计算表的 VBA CodeName（如 `Sheet1`，改标签名不影响）加位置/标签名兜底；当前停在封面/汇总表时点击反查条目，也能准确跳到计算表对应单元格并滚动到屏幕。切换条目的 Excel/工作表/CAD 对象选择缓存与事件抑制同步优化。
