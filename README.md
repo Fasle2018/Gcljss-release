@@ -1,4 +1,4 @@
-# 工程量计算书 · 发布版本
+﻿# 工程量计算书 · 发布版本
 
 本仓库（`Fasle2018/Gcljss-release`）仅存放 **工程量计算书** 的正式发布安装包，供用户下载与自动更新。**不含源码**；源码与开发信息请访问主仓库，如需反馈问题请通过 README 底部的联系方式。
 
@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.92.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.93.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.92.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.92.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.93.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.93.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,12 @@
 
 ## 版本历史（近期）
 
-### 3.0.92.0（当前最新）
+### 3.0.93.0（当前最新）
+
+- **修复「TopView」命令与打开图纸时重置视图在部分图纸无效的问题（本版核心）**：此前直接修改视图记录，遇到透视视图、非二维线框着色模式等图纸时，重置视图可能不生效（提示已出现但视角没变）。现改为调用 AutoCAD 内置命令——先切换为二维线框，再执行俯视，与 CAD 自带的「视图 → 俯视」按钮行为一致，各类图纸下均可正常回到正俯视。
+- 其余功能与 3.0.92.0 一致。
+
+### 3.0.92.0（近期）
 
 - **EXCEL 新增「导出数据」按钮（本版核心）**：在功能区「文件」组中，把当前计算表导出为一份数据副本（单独的 Excel 文件）。该副本**不含工作表保护密码、也不含本程序识别标志**，可直接交给未安装本程序的同事编辑；导出内容保留表格样式（表头/边框/条纹）、单元格批注、列宽行高、字体与对齐、数字格式。
 - **不是另存为、不影响原文件**：导出的是当前打开文件里的最新数据（无需先保存），源文件的文件名/路径/保护状态/未保存标记均不变；若把保存路径误选成源文件本身会被拒绝。
