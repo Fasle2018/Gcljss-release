@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.94.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.95.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.94.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.94.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.95.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.95.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,12 @@
 
 ## 版本历史（近期）
 
-### 3.0.94.0（当前最新）
+### 3.0.95.0（当前最新）
+
+- **修复 CC/CCX 绘图期间按住鼠标中键平移视口时，命令期间绘制的对象周期性闪烁的问题（本版核心）**：此前平移时，插件的瞬态动画仍在逐帧强制刷新显示（流光约 62 次/秒、连续测量集合高亮约 20 次/秒，并会合成鼠标消息），与 AutoCAD 自身的平移重绘相互打断，表现为周期性闪烁且按住越久越频繁。现改为平移期间暂停瞬态逐帧刷新（不改变绘制、入库、命令操作与数据逻辑），松开中键后动画自动恢复；正常绘图与鼠标静止时的流光效果不受影响。
+- 其余功能与 3.0.94.0 一致。
+
+### 3.0.94.0（近期）
 
 - **彻底移除测试日志与诊断代码，生产环境零日志落盘（本版核心）**：删除全部测试日志写入与为日志服务的诊断统计/开关（约 50 个源码文件，净减约 4200 行）。程序不再生成 `%TEMP%\Gcljss_CC.log`、`%TEMP%\工程量计算书\TestLog\*`、`%APPDATA%\工程量计算书\HomeStart.log` 等日志文件，解决长时间使用后日志文件不断增大、写入变慢导致的"越用越卡"问题。
 - **不再保留日志开关**：测试日志代码在任务完成后即整体删除（后续开发按需临时添加、用完清理），不存在"开关抑制输出"的中间状态。
