@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.95.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.96.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.95.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.95.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.96.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.96.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,14 @@
 
 ## 版本历史（近期）
 
-### 3.0.95.0（当前最新）
+### 3.0.96.0（当前最新）
+
+- **立管数据输入框重做（本版核心）**：功能区「布置立管/连续测量」右侧输入框改为无下拉按钮的 DevExpress `TextEdit` + 自绘候选列表，输入时在下方显示历史候选；点击/回车/上下键选择，Esc 关闭。候选只作提示、不自动改写输入文本；在已有值中间插入字符时光标不再跳到末尾。
+- **候选匹配与失焦口径**：候选按「前缀优先、包含其次」匹配，最多 8 条，无下拉按钮、无滚动条；失焦范围按「功能区 ∪ 输入框 ∪ 候选列表」计算，鼠标在功能区内移动/选字符不会丢焦点，移出该范围后才交还。
+- **命令期间可编辑**：BZLG/CCX（含 `G` 关键字）运行期间可点击输入框修改数据，JIG 预览的 `X=值` 实时更新；候选宽度与输入框同步，截断项悬停显示完整字符串。
+- 其余功能与 3.0.95.0 一致。
+
+### 3.0.95.0（近期）
 
 - **修复 CC/CCX 绘图期间按住鼠标中键平移视口时，命令期间绘制的对象周期性闪烁的问题（本版核心）**：此前平移时，插件的瞬态动画仍在逐帧强制刷新显示（流光约 62 次/秒、连续测量集合高亮约 20 次/秒，并会合成鼠标消息），与 AutoCAD 自身的平移重绘相互打断，表现为周期性闪烁且按住越久越频繁。现改为平移期间暂停瞬态逐帧刷新（不改变绘制、入库、命令操作与数据逻辑），松开中键后动画自动恢复；正常绘图与鼠标静止时的流光效果不受影响。
 - 其余功能与 3.0.94.0 一致。
