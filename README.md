@@ -1,4 +1,4 @@
-# 工程量计算书 · 发布版本
+﻿# 工程量计算书 · 发布版本
 
 本仓库（`Fasle2018/Gcljss-release`）仅存放 **工程量计算书** 的正式发布安装包，供用户下载与自动更新。**不含源码**；源码与开发信息请访问主仓库，如需反馈问题请通过 README 底部的联系方式。
 
@@ -6,14 +6,14 @@
 
 ## 立即下载最新版
 
-[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.97.0.exe)
+[![下载最新版](https://img.shields.io/badge/安装包-最新版-blue)](https://github.com/Fasle2018/Gcljss-release/releases/latest/download/Gcljss_Setup_3.0.98.0.exe)
 [![最新版本](https://img.shields.io/github/v/release/Fasle2018/Gcljss-release?label=最新版本)](https://github.com/Fasle2018/Gcljss-release/releases/latest)
 [![下载总量](https://img.shields.io/github/downloads/Fasle2018/Gcljss-release/total?label=下载总量)](https://github.com/Fasle2018/Gcljss-release/releases)
 
 > 上面第一个链接使用 GitHub 的 `releases/latest/download/<文件名>` 稳定地址，**永远指向最新正式版安装包**，无需记住版本号。版本徽章与会自动更新，无需手动维护。
 
-- 安装包文件名：`Gcljss_Setup_3.0.97.0.exe`（约 68 MB，单文件安装包）
-- 版本：**3.0.97.0**（当前最新正式版）
+- 安装包文件名：`Gcljss_Setup_3.0.98.0.exe`（约 68 MB，单文件安装包）
+- 版本：**3.0.98.0**（当前最新正式版）
 - 下载：点击上方按钮，或访问 [Releases 页面](https://github.com/Fasle2018/Gcljss-release/releases)
 - **自动下载页**：[https://fasle2018.github.io/Gcljss-release/](https://fasle2018.github.io/Gcljss-release/)（GitHub Pages 着陆页，自动读取最新版本并提供一键下载）
 
@@ -44,7 +44,12 @@
 
 ## 版本历史（近期）
 
-### 3.0.97.0（当前最新）
+### 3.0.98.0（当前最新）
+
+- **修复 CCX 命令期间功能区立管数据输入框吞掉 B/G/T 按键（本版核心）**：此前 CCX 命令运行期间，在立管输入框里输入 T、B、G 等字符会被命令的单键捕获误拦截，输入框没有反应；输入框失焦后命令还可能补执行最后一次按键。现在输入框获得焦点时可正常输入数字、运算符、字母等任意字符；点绘图区（输入框失焦）后，T/B/G 单键切换恢复正常。
+- 其余功能与 3.0.97.0 一致。
+
+### 3.0.97.0（近期）
 
 - **Excel「检查更新」改为委托后台更新服务（本版核心）**：功能区点击「检查更新」不再由 Excel 进程联网，而是通过本地命名管道请 `UpdateService.exe` 弹出「软件更新」窗口并完成检查/下载。这样即使安全软件阻断了 `EXCEL.EXE` 的出站网络（用于避免 Office 关闭时 30~60 秒的进程驻留），检查更新仍然可用。
 - **软件更新窗口自动前置**：Excel 先授予更新服务前台权限，更新服务弹出窗口时会激活并置于前台；极端前台锁场景下短暂置顶/闪烁任务栏，避免窗口藏在 Excel 后面。
